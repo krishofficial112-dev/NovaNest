@@ -1,0 +1,21 @@
+{
+  "name": "Krish Garg",
+  "title": "B.Tech CSE | Frontend Developer | AI & Automation Enthusiast",
+  "bio": "Hi! I’m Krish Garg, a passionate and curious Computer Science Engineering student specializing in Web Development, AI Prototypes, and Automation. I love building real-world solutions with React.js, Supabase, Firebase, Python, APIs, and automation tools like Selenium. I've worked on AI-powered appointment schedulers, full e-commerce platforms, and automation scripts. Open to internships, freelance gigs, and collaborations in web dev, automation, or AI integration.",
+  "email": "Krishofficial112@gmail.com",
+  "avatar": "assets/profile-placeholder.png",
+  "links": [
+    {
+      "label": "Portfolio",
+      "url": "https://krishofficial112-dev.github.io/portfolio/"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/krishgarg12"
+    },
+    {
+      "label": "GitHub",
+      "url": "https://github.com/krishofficial112-dev"
+    }
+  ]
+}
