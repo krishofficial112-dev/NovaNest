@@ -51,3 +51,53 @@ document.addEventListener('DOMContentLoaded', () => {
       // silently ignore if profile file missing
     });
 });
+document.addEventListener("DOMContentLoaded", () => {
+  // Autofill service when clicked
+  document.querySelectorAll("[data-service]").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const service = btn.dataset.service;
+      document.getElementById("selectedService").value = service;
+      document.getElementById("booking").scrollIntoView({behavior: "smooth"});
+    });
+  });
+
+  // Razorpay Payment
+  document.getElementById("payButton").addEventListener("click", () => {
+    const form = document.getElementById("bookingForm");
+    const name = form.name.value;
+    const email = form.email.value;
+    const service = form.service.value;
+    const comments = form.comments.value;
+
+    if (!name || !email || !service) {
+      alert("Please fill all required fields");
+      return;
+    }
+
+    const options = {
+      key: "YOUR_RAZORPAY_KEY_ID", // replace with your Razorpay key
+      amount: 50000, // Example ₹500 in paise (100 paise = ₹1)
+      currency: "INR",
+      name: "NovaNest",
+      description: `Booking for ${service}`,
+      handler: function (response) {
+        alert(`Payment successful! Payment ID: ${response.razorpay_payment_id}\\nService: ${service}\\nComments: ${comments}`);
+        // TODO: Send details to your backend (name, email, service, comments, payment ID)
+      },
+      prefill: {
+        name: name,
+        email: email,
+      },
+      notes: {
+        service: service,
+        comments: comments,
+      },
+      theme: {
+        color: "#2563EB"
+      }
+    };
+    const rzp1 = new Razorpay(options);
+    rzp1.open();
+  });
+});
