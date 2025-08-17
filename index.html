@@ -1,297 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NovaNest — Your All‑in‑One Tech Partner</title>
-  <meta name="description" content="NovaNest offers full‑stack tech services at reasonable prices—web & app development, UI/UX, branding, cloud, AI, and growth." />
-  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
-
-  <!-- Tailwind via CDN -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NovaNest</title>
+  <link rel="stylesheet" href="css/styles.css">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              50:'#f2faff',
-              100:'#e6f4ff',
-              200:'#bfdeff',
-              300:'#99c9ff',
-              400:'#66aaff',
-              500:'#3b82f6',
-              600:'#2563eb',
-              700:'#1d4ed8',
-              800:'#1e40af',
-              900:'#1e3a8a'
-            }
-          },
-          boxShadow: {
-            soft: '0 10px 30px rgba(0,0,0,.08)'
-          }
-        }
-      }
-    }
-  </script>
-
-  <!-- GSAP + ScrollTrigger -->
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css" />
 </head>
+<body class="bg-slate-50 text-slate-800">
 
-<body class="bg-white text-slate-800 antialiased" style="font-family: 'Inter', sans-serif;">
-  <!-- NAV -->
-  <header class="sticky top-0 z-40 backdrop-blur bg-white/70 border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <a href="#" class="flex items-center gap-3 group">
-          <img src="assets/logo.svg" alt="<img src="assets/download.png" alt="NovaNest logo" class="h-10 w-auto">
-">
-          <span class="font-extrabold text-xl tracking-tight">NovaNest</span>
-        </a>
-        <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
-          <a href="#services" class="nav-link">Services</a>
-          <a href="#pricing" class="nav-link">Pricing</a>
-          <a href="#work" class="nav-link">Work</a>
-          <a href="#about" class="nav-link">About</a>
-          <a href="#contact" class="px-4 py-2 bg-slate-900 text-white rounded-2xl shadow-soft hover:shadow-lg transition">Contact</a>
-        </nav>
-      </div>
-    </div>
+  <header class="p-6 bg-white shadow">
+    <h1 class="text-2xl font-extrabold">NovaNest</h1>
+    <nav>
+      <a href="#services">Services</a> | 
+      <a href="work.html">Work</a> | 
+      <a href="booking.html">Book</a>
+    </nav>
   </header>
 
-  <!-- HERO -->
-  <section class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-brand-50 to-white -z-10"></div>
-    <div class="max-w-7xl mx-auto px-6 pt-20 pb-24">
-      <div class="grid md:grid-cols-2 gap-10 items-center">
-        <div>
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-100 text-brand-700 text-xs font-semibold mb-4">
-            <span>New</span><span class="opacity-50">•</span><span>All‑in‑One Tech at Honest Prices</span>
-          </div>
-          <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">
-            Build faster. Launch smarter. <span class="text-brand-600">Scale affordably.</span>
-          </h1>
-          <p class="mt-4 text-slate-600 text-lg">
-            We deliver web, mobile, AI, cloud, and creative—under one roof. Transparent pricing,
-            rapid delivery, and support that actually cares.
-          </p>
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a href="#pricing" class="btn-primary">See Pricing</a>
-            <a href="#work" class="btn-secondary">View Work</a>
-          </div>
-          <ul class="mt-6 text-slate-500 text-sm grid grid-cols-2 gap-3 max-w-md">
-            <li class="flex items-center gap-2"><span class="check"></span>7‑day MVP sprints</li>
-            <li class="flex items-center gap-2"><span class="check"></span>24/7 support</li>
-            <li class="flex items-center gap-2"><span class="check"></span>Cancel anytime</li>
-            <li class="flex items-center gap-2"><span class="check"></span>Maintenance plans</li>
-          </ul>
-        </div>
-        <div class="relative">
-          <img src="assets/hero.svg" alt="Tech illustration" class="w-full drop-shadow-xl tilt">
-          <div class="absolute -z-10 -top-10 -right-10 w-64 h-64 bg-brand-200 rounded-full blur-3xl opacity-60"></div>
-          <div class="absolute -z-10 -bottom-10 -left-10 w-64 h-64 bg-brand-100 rounded-full blur-3xl opacity-60"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="services" class="py-20 relative">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="flex items-end justify-between gap-6 mb-10">
-        <h2 class="section-title">Everything you need to ship</h2>
-        
-        <p class="text-slate-600 max-w-xl">From sleek landing pages to AI‑powered platforms—pick a plan or mix & match.</p>
-      </div>
+  <main class="p-6">
+    <section id="services" class="py-10">
+      <h2 class="text-3xl font-bold mb-6">Services</h2>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="card service">
+        <div class="card">
           <h3 class="card-title">Web & App Development</h3>
-          <p class="card-text">Next.js, React, Node, Python—full‑stack builds, from MVP to enterprise.</p>
+          <p class="card-text">React, Next.js, Node.js, scalable apps.</p>
+          <a href="booking.html?service=Web%20&%20App%20Development" class="btn-primary">Book Now</a>
         </div>
-        <div class="card service">
+        <div class="card">
           <h3 class="card-title">UI/UX & Branding</h3>
-          <p class="card-text">Design systems, product UX, logos, pitch decks, and design audits.</p>
+          <p class="card-text">Design systems, UX, branding.</p>
+          <a href="booking.html?service=UI%2FUX%20%26%20Branding" class="btn-primary">Book Now</a>
         </div>
-        <div class="card service">
+        <div class="card">
           <h3 class="card-title">AI & Automation</h3>
-          <p class="card-text">Chatbots, RAG, agents, embeddings, data pipelines, and workflow automation.</p>
+          <p class="card-text">Chatbots, AI prototypes, automation scripts.</p>
+          <a href="booking.html?service=AI%20%26%20Automation" class="btn-primary">Book Now</a>
         </div>
-        <div class="card service">
+        <div class="card">
           <h3 class="card-title">Cloud & DevOps</h3>
-          <p class="card-text">Infra on AWS/GCP/Azure, CI/CD, containers, observability, and security.</p>
+          <p class="card-text">AWS/GCP/Azure infra & CI/CD.</p>
+          <a href="booking.html?service=Cloud%20%26%20DevOps" class="btn-primary">Book Now</a>
         </div>
-        <div class="card service">
-          <h3 class="card-title">E‑commerce</h3>
-          <p class="card-text">Shopify/Headless, payments, subscription, analytics, and growth.</p>
+        <div class="card">
+          <h3 class="card-title">E-commerce</h3>
+          <p class="card-text">Shopify/Headless, payments.</p>
+          <a href="booking.html?service=E-commerce" class="btn-primary">Book Now</a>
         </div>
-        <div class="card service">
+        <div class="card">
           <h3 class="card-title">Maintenance & Support</h3>
-          <p class="card-text">Bug fixes, performance tuning, backups, SLA support, and retainers.</p>
+          <p class="card-text">Bug fixes, tuning, SLA support.</p>
+          <a href="booking.html?service=Maintenance%20%26%20Support" class="btn-primary">Book Now</a>
+        </div>
+        <div class="card">
+          <h3 class="card-title">Digital Marketing</h3>
+          <p class="card-text">SEO, campaigns, ads.</p>
+          <a href="booking.html?service=Digital%20Marketing" class="btn-primary">Book Now</a>
+        </div>
+        <div class="card">
+          <h3 class="card-title">Data & Analytics</h3>
+          <p class="card-text">Dashboards, BI, ML insights.</p>
+          <a href="booking.html?service=Data%20%26%20Analytics" class="btn-primary">Book Now</a>
+        </div>
+        <div class="card">
+          <h3 class="card-title">Cybersecurity</h3>
+          <p class="card-text">Audits, testing, compliance.</p>
+          <a href="booking.html?service=Cybersecurity" class="btn-primary">Book Now</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- PRICING -->
-  <section id="pricing" class="py-20 bg-slate-50">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="section-title mb-10">Transparent pricing</h2>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="card price">
-          <p class="badge">Starter</p>
-          <h3 class="card-title mt-2">₹9,999</h3>
-          <p class="card-text">Simple site or audit. 1–2 weeks delivery.</p>
-          <ul class="feature-list">
-            <li>Up to 5 pages</li>
-            <li>Email support</li>
-            <li>Basic SEO</li>
-          </ul>
-          <a href="#contact" class="btn-primary mt-6">Get Started</a>
-        </div>
-        <div class="card price ring-2 ring-brand-200">
-          <p class="badge popular">Popular</p>
-          <h3 class="card-title mt-2">₹19,999</h3>
-          <p class="card-text">MVP build. 3–6 weeks delivery.</p>
-          <ul class="feature-list">
-            <li>Full‑stack app</li>
-            <li>Design system</li>
-            <li>1 month support</li>
-          </ul>
-          <a href="#contact" class="btn-primary mt-6">Start MVP</a>
-        </div>
-        <div class="card price">
-          <p class="badge">Scale</p>
-          <h3 class="card-title mt-2">Custom</h3>
-          <p class="card-text">Enterprise or ongoing engagement.</p>
-          <ul class="feature-list">
-            <li>Dedicated team</li>
-            <li>SLAs & security</li>
-            <li>Roadmapping</li>
-          </ul>
-          <a href="#contact" class="btn-primary mt-6">Book a Call</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Floating Book Service Button -->
+  <a href="booking.html" id="floatingBookBtn"
+     class="fixed bottom-6 right-6 bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-full shadow-lg text-sm font-semibold transition z-50">
+    🚀 Book Service
+  </a>
 
-  <!-- WORK / PORTFOLIO -->
-  <section id="work" class="py-20">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="flex items-end justify-between gap-6 mb-10">
-        <h2 class="section-title">Selected work</h2>
-        <a href="work.html" class="text-brand-700 hover:text-brand-900 text-sm font-semibold">See all →</a>
-      </div>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="work-card">
-          <div class="work-thumb"></div>
-          <div class="p-5">
-            <h3 class="font-semibold">SaaS Dashboard</h3>
-            <p class="text-slate-600 text-sm">React + Node, subscriptions, analytics.</p>
-          </div>
-        </div>
-        <div class="work-card">
-          <div class="work-thumb"></div>
-          <div class="p-5">
-            <h3 class="font-semibold">E‑commerce Revamp</h3>
-            <p class="text-slate-600 text-sm">Headless storefront, +32% conversion.</p>
-          </div>
-        </div>
-        <div class="work-card">
-          <div class="work-thumb"></div>
-          <div class="p-5">
-            <h3 class="font-semibold">AI Support Bot</h3>
-            <p class="text-slate-600 text-sm">RAG + workflows, 40% ticket deflection.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT / PROFILE (auto-filled from data/profile.json) -->
-  <section id="about" class="py-20 bg-slate-50">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="section-title mb-10">About the founder</h2>
-
-     
-      <div class="grid md:grid-cols-3 gap-8 items-start">
-        <div class="md:col-span-1">
-          <img id="profileAvatar" src="assets/profile-placeholder.png" alt="https://ibb.co/7xFkZrVg" class="w-40 h-40 object-cover rounded-2xl shadow-soft">
-        </div>
-        <div class="md:col-span-2">
-          <h3 id="profileName" class="text-2xl font-bold">Krish Garg</h3>
-          <p id="profileTitle" class="text-slate-600 mt-1">Founder • Full‑stack Engineer</p>
-          <p id="profileBio" class="mt-4 text-slate-700"> Hi, I’m Krish Garg — a B.Tech CSE student 👨‍💻 passionate about Web Dev ⚡ | AI 🤖 | Automation ⚙️.
-I love building modern apps, AI prototypes, and smart automation tools that solve real-world problems 🌍.
-Always exploring, always learning 📚 — open to internships, freelance, and collabs 🤝</p>
-          <div class="mt-6 flex flex-wrap gap-3" id="profileLinks">
-            <!-- profile links inserted here -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="py-20">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="section-title">Let's build something great</h2>
-      <p class="text-slate-600 mt-2"> <a class="underline decoration-brand-300 underline-offset-4" id="emailLink" href="mailto:hello@novanest.tech">krishofficial112@gmail.com</a></p>
-
-      <form class="mt-8 grid sm:grid-cols-2 gap-4" id="contactForm" action="https://formspree.io/f/your-form-id" method="POST">
-        <input name="name" placeholder="Your name" class="input" required>
-        <input type="email" name="email" placeholder="Email address" class="input" required>
-        <input name="company" placeholder="Company (optional)" class="input sm:col-span-2">
-        <textarea name="message" placeholder="What are you building?" class="input sm:col-span-2" rows="5" required></textarea>
-        <button class="btn-primary sm:col-span-2">Send message</button>
-      </form>
-      <p class="text-xs text-slate-500 mt-3"></p>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="border-t border-slate-200 py-10">
-    <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6 text-sm text-slate-500">
-      <p>© <span id="year"></span> NovaNest. All rights reserved.</p>
-      <div class="flex items-center gap-4">
-        <a href="#" class="hover:text-slate-700">Privacy</a>
-        <a href="#" class="hover:text-slate-700">Terms</a>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/app.js"></script>
-<!-- Floating Book Service Button -->
-<a href="booking.html" id="floatingBookBtn"
-   class="fixed bottom-6 right-6 bg-brand-600 hover:bg-brand-700 text-white px-5 py-3 rounded-full shadow-lg text-sm font-semibold transition z-50">
-  🚀 Book Service
-</a>
 </body>
 </html>
-<section id="booking" class="py-20 bg-slate-50">
-  <div class="max-w-2xl mx-auto px-6">
-    <h2 class="section-title">Book a Service</h2>
-    <form id="bookingForm" class="mt-6 space-y-4">
-      <input type="text" name="name" placeholder="Your Name" class="input" required>
-      <input type="email" name="email" placeholder="Email" class="input" required>
-      <select name="service" id="selectedService" class="input" required>
-        <option value="">Select a service</option>
-        <option value="Web & App Development">Web & App Development</option>
-        <option value="UI/UX & Branding">UI/UX & Branding</option>
-        <option value="AI & Automation">AI & Automation</option>
-        <option value="Cloud & DevOps">Cloud & DevOps</option>
-        <option value="E-commerce">E-commerce</option>
-        <option value="Maintenance & Support">Maintenance & Support</option>
-      </select>
-      <textarea name="comments" placeholder="Any special requirements?" class="input" rows="4"></textarea>
-      <button type="button" id="payButton" class="btn-primary w-full">Proceed to Pay</button>
-    </form>
-  </div>
-</section>
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>

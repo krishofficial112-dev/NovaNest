@@ -25,6 +25,9 @@
         <option value="Cloud & DevOps">Cloud & DevOps</option>
         <option value="E-commerce">E-commerce</option>
         <option value="Maintenance & Support">Maintenance & Support</option>
+        <option value="Digital Marketing">Digital Marketing</option>
+        <option value="Data & Analytics">Data & Analytics</option>
+        <option value="Cybersecurity">Cybersecurity</option>
       </select>
 
       <textarea name="comments" placeholder="Any special requirements?" class="input" rows="4"></textarea>
@@ -33,11 +36,18 @@
     </form>
 
     <p class="text-center mt-6">
-      <a href="index.html" class="text-brand-600 hover:underline">← Back to Home</a>
+      <a href="index.html" class="text-blue-600 hover:underline">← Back to Home</a>
     </p>
   </div>
 
   <script>
+    // Autofill service from query
+    const params = new URLSearchParams(window.location.search);
+    if (params.has("service")) {
+      document.getElementById("selectedService").value = decodeURIComponent(params.get("service"));
+    }
+
+    // Razorpay demo checkout
     document.getElementById("payButton").addEventListener("click", () => {
       const form = document.getElementById("bookingForm");
       const name = form.name.value;
@@ -51,24 +61,16 @@
       }
 
       const options = {
-        key: "YOUR_RAZORPAY_KEY_ID", // replace with your Razorpay key
-        amount: 50000, // example ₹500 in paise
+        key: "rzp_test_1234567890abcdef", // demo key
+        amount: 50000, // ₹500
         currency: "INR",
         name: "NovaNest",
         description: `Booking for ${service}`,
         handler: function (response) {
-          alert(
-            `✅ Payment successful!\\nService: ${service}\\nPayment ID: ${response.razorpay_payment_id}\\nComments: ${comments}`
-          );
+          alert(`✅ Payment successful!\nService: ${service}\nPayment ID: ${response.razorpay_payment_id}\nComments: ${comments}`);
         },
-        prefill: {
-          name: name,
-          email: email,
-        },
-        notes: {
-          service: service,
-          comments: comments,
-        },
+        prefill: { name: name, email: email },
+        notes: { service: service, comments: comments },
         theme: { color: "#2563EB" }
       };
 
