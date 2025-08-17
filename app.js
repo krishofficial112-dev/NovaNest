@@ -101,3 +101,12 @@ document.addEventListener("DOMContentLoaded", () => {
     rzp1.open();
   });
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const floatingBtn = document.getElementById("floatingBookBtn");
+  if (floatingBtn) {
+    floatingBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      document.getElementById("booking").scrollIntoView({behavior: "smooth"});
+    });
+  }
+});
