@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book a Service | NovaNest</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+  
+  <div class="max-w-2xl mx-auto px-6 py-12">
+    <h1 class="text-3xl font-extrabold mb-6 text-center">Book a Service</h1>
+
+    <form id="bookingForm" class="space-y-4 bg-white p-6 rounded-2xl shadow-lg">
+      <input type="text" name="name" placeholder="Your Name" class="input" required>
+      <input type="email" name="email" placeholder="Email Address" class="input" required>
+      
+      <select name="service" id="selectedService" class="input" required>
+        <option value="">Select a service</option>
+        <option value="Web & App Development">Web & App Development</option>
+        <option value="UI/UX & Branding">UI/UX & Branding</option>
+        <option value="AI & Automation">AI & Automation</option>
+        <option value="Cloud & DevOps">Cloud & DevOps</option>
+        <option value="E-commerce">E-commerce</option>
+        <option value="Maintenance & Support">Maintenance & Support</option>
+      </select>
+
+      <textarea name="comments" placeholder="Any special requirements?" class="input" rows="4"></textarea>
+
+      <button type="button" id="payButton" class="btn-primary w-full">Proceed to Pay</button>
+    </form>
+
+    <p class="text-center mt-6">
+      <a href="index.html" class="text-brand-600 hover:underline">← Back to Home</a>
+    </p>
+  </div>
+
+  <script>
+    document.getElementById("payButton").addEventListener("click", () => {
+      const form = document.getElementById("bookingForm");
+      const name = form.name.value;
+      const email = form.email.value;
+      const service = form.service.value;
+      const comments = form.comments.value;
+
+      if (!name || !email || !service) {
+        alert("Please fill all required fields");
+        return;
+      }
+
+      const options = {
+        key: "YOUR_RAZORPAY_KEY_ID", // replace with your Razorpay key
+        amount: 50000, // example ₹500 in paise
+        currency: "INR",
+        name: "NovaNest",
+        description: `Booking for ${service}`,
+        handler: function (response) {
+          alert(
+            `✅ Payment successful!\\nService: ${service}\\nPayment ID: ${response.razorpay_payment_id}\\nComments: ${comments}`
+          );
+        },
+        prefill: {
+          name: name,
+          email: email,
+        },
+        notes: {
+          service: service,
+          comments: comments,
+        },
+        theme: { color: "#2563EB" }
+      };
+
+      const rzp1 = new Razorpay(options);
+      rzp1.open();
+    });
+  </script>
+</body>
+</html>
