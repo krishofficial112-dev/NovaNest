@@ -269,3 +269,24 @@ Always exploring, always learning 📚 — open to internships, freelance, and c
   <script src="js/app.js"></script>
 </body>
 </html>
+<section id="booking" class="py-20 bg-slate-50">
+  <div class="max-w-2xl mx-auto px-6">
+    <h2 class="section-title">Book a Service</h2>
+    <form id="bookingForm" class="mt-6 space-y-4">
+      <input type="text" name="name" placeholder="Your Name" class="input" required>
+      <input type="email" name="email" placeholder="Email" class="input" required>
+      <select name="service" id="selectedService" class="input" required>
+        <option value="">Select a service</option>
+        <option value="Web & App Development">Web & App Development</option>
+        <option value="UI/UX & Branding">UI/UX & Branding</option>
+        <option value="AI & Automation">AI & Automation</option>
+        <option value="Cloud & DevOps">Cloud & DevOps</option>
+        <option value="E-commerce">E-commerce</option>
+        <option value="Maintenance & Support">Maintenance & Support</option>
+      </select>
+      <textarea name="comments" placeholder="Any special requirements?" class="input" rows="4"></textarea>
+      <button type="button" id="payButton" class="btn-primary w-full">Proceed to Pay</button>
+    </form>
+  </div>
+</section>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
