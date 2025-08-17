@@ -80,3 +80,44 @@
   </script>
 </body>
 </html>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+  async function startPayment() {
+    const form = document.getElementById("bookingForm");
+    const name = form.name.value;
+    const email = form.email.value;
+    const service = form.service.value;
+    const comments = form.comments.value;
+
+    if (!name || !email || !service) {
+      alert("Please fill all required fields");
+      return;
+    }
+
+    // Call backend to create order
+    const res = await fetch("http://localhost:5000/create-order", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ amount: 50000, service, comments })
+    });
+    const order = await res.json();
+
+    const options = {
+      key: "rzp_test_R6PQ7RCD3thtwf", // your real Key ID
+      amount: order.amount,
+      currency: order.currency,
+      name: "NovaNest",
+      description: `Booking for ${service}`,
+      order_id: order.id,
+      handler: function (response) {
+        alert(`✅ Payment successful!\\nPayment ID: ${response.razorpay_payment_id}`);
+      },
+      prefill: { name, email },
+      notes: { service, comments },
+      theme: { color: "#2563EB" }
+    };
+
+    const rzp1 = new Razorpay(options);
+    rzp1.open();
+  }
+</script>
